@@ -1,4 +1,4 @@
-# Bamboo - Formatting with Protocols
+# Bamboo/Formatting with Protocols
 
 Another Elixir feature that Bamboo takes advantage of is protocols. Briefly, an
 Elixir protocol is an interface that data can conform to, allowing for
