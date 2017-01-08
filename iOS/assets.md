@@ -1,6 +1,6 @@
 # Assets
 
-How iOS handles different resolutions of screens and assets?
+## How iOS handles different resolutions of screens and assets?
 
 iOS assets come in the sizes 2x and 3x, which are two times and three times the
 size of the layout you created in Interface Builder. This might seem strange,
