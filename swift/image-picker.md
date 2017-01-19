@@ -69,3 +69,11 @@ if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceTy
     picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
 }
 ```
+
+### Present
+
+To present (show on screen) this controller:
+
+```swift
+present(picker, animated: true)
+```
