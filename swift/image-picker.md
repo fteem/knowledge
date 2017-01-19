@@ -77,3 +77,24 @@ To present (show on screen) this controller:
 ```swift
 present(picker, animated: true)
 ```
+
+## Handling the chosen media
+
+Since the controller which will hold the `UIImagePickerController` instance and
+behaviour implements the `UIImagePickerControllerDelegate` protocol, it has to
+implement a function that will handle the chosen file:
+
+```swift
+func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    // `info` is a Dictionary that contains the image and metadata
+    guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
+
+    // Do something with the image...
+    if let jpegData = UIImageJPEGRepresentation(image, 80) {
+        try? jpegData.write(to: someImagePath)
+    }
+
+    // Dismiss the image picker controller
+    dismiss(animated: true)
+}
+```

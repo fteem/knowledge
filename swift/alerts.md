@@ -19,7 +19,7 @@ let alertControler = UIAlertController(
 )
 ```
 
-An an action to the `UIAlertController`:
+Add an action to the `UIAlertController`:
 
 ```swift
 alertController.addAction(
@@ -30,6 +30,13 @@ alertController.addAction(
     )
 )
 ```
+
+Add a text field to the controller:
+
+```swift
+alertController.addTextField()
+```
+
 
 Presenting:
 
