@@ -59,3 +59,32 @@ Reading is done:
 let array = defaults.object(forKey: "SavedArray") as? [String] ?? [String]()
 ```
 
+## Encoding objects/structs before writing
+
+All objects or structs have to be encoded before they are written. This is done
+via the `NSKeyedArchiver` class, using it's `archivedData(withRootObject:)` static
+function:
+
+```swift
+// The data do be saved
+var names = ['Ilija', 'John', 'Jane']
+// Encoding...
+let savedData = NSKeyedArchiver.archivedData(withRootObject: names)
+// Saving
+let defaults = UserDefaults.standard
+defaults.set(savedData, forKey: "names")
+```
+
+## Decoding object/structs
+
+All data that needs to be retrieved from the `UserDefaults` needs to be
+decoded (unarchived) using `NSKeyedUnarchiver.unarchiveObject(with:)` function:
+
+```swift
+var names = [String]()
+let defaults = UserDefaults.standard
+
+if let savedNames = defaults.object(forKey: "names") as? Data {
+    names = NSKeyedUnarchiver.unarchiveObject(with: savedNames) as! [String]
+}
+```
